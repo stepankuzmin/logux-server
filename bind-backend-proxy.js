@@ -13,13 +13,10 @@ function parseAnswer (str) {
     return false
   }
   if (!Array.isArray(json)) return false
-  let answered = false
   for (let command of json) {
     if (!Array.isArray(command)) return false
     if (typeof command[0] !== 'string') return false
-    if (command[0] === 'processed' || command[0] === 'error') answered = true
   }
-  if (!answered) return false
   return json
 }
 
